@@ -9,9 +9,9 @@ setup(
             "libRustBCA",
             binding=Binding.PyO3,
             features=["python", "parry3d"],
-            #args=["+nightly", "--edition 2021", "-Z unstable-options"],
-            #optional=True,
-            #rust_version="1.57.0"
+            # args=["+nightly", "--edition 2021", "-Z unstable-options"],
+            # optional=True,
+            # rust_version="1.57.0"
         )
     ],
     # rust extensions are not zip safe, just like C-extensions.

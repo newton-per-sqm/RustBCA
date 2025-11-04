@@ -27,22 +27,21 @@ class Rustbca(Package):
     """RustBCA: A Binary Collision Approximation code and libraries for simulating ion-material interactions"""
 
     homepage = "https://www.github.com/lcpp-org/RustBCA/wiki"
-    url      = "https://github.com/lcpp-org/RustBCA/archive/refs/tags/v1.2.0.tar.gz"
-    git      = "https://www.github.com/lcpp-org/RustBCA.git"
+    url = "https://github.com/lcpp-org/RustBCA/archive/refs/tags/v1.2.0.tar.gz"
+    git = "https://www.github.com/lcpp-org/RustBCA.git"
 
     # maintainers = ['drobnyjt']
 
-    version('dev', branch='dev')
-    version('main', branch='main')
-    depends_on('rust')
+    version("dev", branch="dev")
+    version("main", branch="main")
+    depends_on("rust")
 
     def install(self, spec, prefix):
-        cargo = which('cargo')
-        cargo('build', '--release', '--lib')
+        cargo = which("cargo")
+        cargo("build", "--release", "--lib")
 
         mkdirp(prefix.include)
-        install('RustBCA.h', prefix.include)
+        install("RustBCA.h", prefix.include)
 
         mkdirp(prefix.lib)
-        install('target/release/liblibRustBCA.so', prefix.lib)
-        
+        install("target/release/liblibRustBCA.so", prefix.lib)
