@@ -30,7 +30,7 @@ jobs:
         sudo apt-get install python3-pip python3-dev
     - name: Install Python libraries
       run: |
-        python3 -m pip install numpy shapely scipy matplotlib toml
+        python3 -m pip install numpy shapely scipy matplotlib toml tomlkit
     - name: Install HDF5 Libraries
       run: |
         sudo apt install libhdf5-dev
@@ -41,6 +41,8 @@ jobs:
         python3 -m pip install .
         python3 -c "from libRustBCA import *;"
         python3 examples/test_rustbca.py
+        python3 examples/test_cube.py
+        python3 examples/make_input_file_and_run.py
     - name: Test Fortran and C bindings
       run : |
         cargo build --release --lib --features parry3d
